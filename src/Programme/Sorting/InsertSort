@@ -1,0 +1,49 @@
+//插入排序：
+创建一个数组，作为存放需要存放的数值。定义另外两个数值，low作为初始。hight作为最后一个
+默认第一个数值直接插入数组之间，创建一个临时变量空间，将第二个数值跟第一个数值进行对比，
+数值比前一个数值大，就直接插入后面的位置；如果数值比前面的数值小，将数值存放在临时空间中
+并将当前数值向后移动一位，将临时空间中的数值移动到当前数值的位置，作一个替换的操作。
+
+//输入：数据元素数组r,数组r的待排序区间[low,hight];
+//输出：数组r以关键字有序
+public void insertSort(Object[] r ,int low,int height){
+    for(int i = low+1;i <= high;i++){
+        if(strategy.compare(r[i],r[i-1]<0)){
+            Object temp = r[i];
+            r[i]=r[i-1];
+            int j = i-2;
+            for(;j>=low & strategy.compare(temp,r[j]<0);j--)
+                r[j+1] = r[j];
+            r[j+1] = temp;
+        }
+    }
+}
+
+
+//二分插入排序
+在有序序列中确定插入位置，则可以不断二分
+有序序列来确定插入位置，即搜索插入位置的方法可以使用折半查找实现
+public void binInsertSort(Object[] r,int low,int hight){
+    for(int i = low+1;i <= hight;i++){
+        //保存待插入元素
+        Object temp = r[i];
+        //初始化区间
+        int hi = i-1;
+        int lo = low;
+        //折半确定插入位置
+        while(lo<=hi){
+            int mid = (lo+hi)/2;
+            if(startegy.compare(temp,r[mid])<0)
+                hi = mid -1;
+            else lo = mid + 1;
+        }
+        //移动元素
+        for(int j = i-1 ;j >hi;j--)
+            r[j+1] = r[j];
+        //插入元素
+        r[hi+1] = temop;
+    }
+}
+
+
+

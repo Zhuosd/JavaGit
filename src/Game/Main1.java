@@ -5,6 +5,7 @@ package Game;
  * @create 2017-11-06 15:40
  */
 public class Main1{
+    //进行字符串的对比操作
 public static boolean fun(String s1,String s2){
         if(s1.length() != s2.length()) return false;
         if(s1.length()==0) return true;
